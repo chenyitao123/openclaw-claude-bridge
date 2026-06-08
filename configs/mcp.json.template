@@ -1,0 +1,22 @@
+{
+  "_comment": "MCP 服务器注册 → ~/.mcp.json",
+  "_instructions": "复制此文件到 ~/.mcp.json。NODE_PATH 指向 openclaw node_modules 目录。",
+
+  "mcpServers": {
+    "task-bridge": {
+      "type": "stdio",
+      "command": "<path-to-node-binary>",
+      "_comment_command": "例如: /home/YOUR_USER/.openclaw/tools/node-v22.22.0/bin/node",
+
+      "args": [
+        "<path-to-mcp-task-bridge.js>"
+      ],
+      "_comment_args": "例如: /home/YOUR_USER/openclaw-claude-bridge/scripts/mcp-task-bridge.js",
+
+      "env": {
+        "NODE_PATH": "<path-to-openclaw-node_modules>"
+      },
+      "_comment_nodepath": "重要：指向 openclaw 的 node_modules 目录。\n例如: /home/YOUR_USER/.openclaw/tools/node-v22.22.0/lib/node_modules/openclaw/node_modules\n注意：是 node_modules 父目录，不是 @modelcontextprotocol/sdk 本身。"
+    }
+  }
+}

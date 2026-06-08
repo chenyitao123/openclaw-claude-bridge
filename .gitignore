@@ -1,0 +1,17 @@
+# 防止误提交真实配置（这些文件含密钥）
+settings.json
+settings.local.json
+openclaw.json
+mcp.json
+*.env
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# 编辑器
+.vscode/
+.idea/

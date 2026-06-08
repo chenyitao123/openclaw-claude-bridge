@@ -1,0 +1,27 @@
+[Unit]
+Description=OpenClaw Gateway
+After=network-online.target
+Wants=network-online.target
+StartLimitBurst=5
+StartLimitIntervalSec=60
+
+[Service]
+ExecStart=<path-to-node> <path-to-openclaw-dist>/index.js gateway --port 18789
+# 例如: /home/YOUR_USER/.openclaw/tools/node-v22.22.0/bin/node /home/YOUR_USER/.openclaw/tools/node-v22.22.0/lib/node_modules/openclaw/dist/index.js gateway --port 18789
+Restart=always
+RestartSec=5
+RestartPreventExitStatus=78
+TimeoutStopSec=30
+TimeoutStartSec=30
+SuccessExitStatus=0 143
+KillMode=control-group
+Environment=HOME=%h
+Environment=TMPDIR=/tmp
+Environment=PATH=%h/.openclaw/tools/node-v22.22.0/bin:%h/.local/bin:%h/.npm-global/bin:%h/bin:/usr/local/bin:/usr/bin:/bin
+Environment=OPENCLAW_GATEWAY_PORT=18789
+Environment=OPENCLAW_SYSTEMD_UNIT=openclaw-gateway.service
+Environment=OPENCLAW_SERVICE_MARKER=openclaw
+Environment=OPENCLAW_SERVICE_KIND=gateway
+
+[Install]
+WantedBy=default.target

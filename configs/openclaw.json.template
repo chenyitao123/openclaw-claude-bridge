@@ -1,0 +1,78 @@
+{
+  "_comment": "OpenClaw Gateway 配置 → ~/.openclaw/openclaw.json",
+  "_instructions": "这是关键配置片段，不是完整文件。合并到你的 openclaw.json 中。",
+
+  "gateway": {
+    "mode": "local",
+    "bind": "loopback",
+    "port": 18789,
+    "auth": {
+      "mode": "token",
+      "token": "<your-gateway-token>"
+    }
+  },
+
+  "agents": {
+    "defaults": {
+      "workspace": "<path-to-openclaw-workspace>",
+      "_comment_workspace": "例如: /home/YOUR_USER/.openclaw/workspace",
+      "model": {
+        "primary": "deepseek/deepseek-v4-pro"
+      }
+    }
+  },
+
+  "plugins": {
+    "entries": {
+      "openclaw-weixin": {
+        "enabled": true
+      },
+      "deepseek": {
+        "enabled": true
+      },
+      "memory-core": {
+        "config": {
+          "dreaming": {
+            "enabled": true
+          }
+        }
+      }
+    }
+  },
+
+  "channels": {
+    "openclaw-weixin": {
+      "_comment": "通过 openclaw channels add --channel openclaw-weixin 交互式添加"
+    }
+  },
+
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "deepseek": {
+        "baseUrl": "https://api.deepseek.com",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "deepseek-v4-pro",
+            "name": "DeepSeek V4 Pro",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1000000,
+            "maxTokens": 384000,
+            "api": "openai-completions"
+          },
+          {
+            "id": "deepseek-v4-flash",
+            "name": "DeepSeek V4 Flash",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 1000000,
+            "maxTokens": 384000,
+            "api": "openai-completions"
+          }
+        ]
+      }
+    }
+  }
+}

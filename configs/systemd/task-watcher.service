@@ -1,0 +1,22 @@
+[Unit]
+Description=OpenClaw Task Watcher for Claude Code
+After=network-online.target openclaw-gateway.service
+Wants=openclaw-gateway.service
+
+[Service]
+Type=simple
+ExecStart=%h/bin/task-watcher.sh
+Restart=on-failure
+RestartSec=10
+WorkingDirectory=%h/.openclaw/workspace
+
+# PATH：确保能找到 claude 和 openclaw 二进制
+Environment="PATH=%h/.openclaw/tools/node-v22.22.0/bin:/usr/local/bin:/usr/bin:/bin"
+
+# 模型配置（按需修改）
+Environment="ANTHROPIC_BASE_URL=https://api.deepseek.com/anthropic"
+Environment="ANTHROPIC_MODEL=deepseek-v4-pro[1m]"
+Environment="ANTHROPIC_DEFAULT_HAIKU_MODEL=deepseek-v4-flash"
+
+[Install]
+WantedBy=default.target

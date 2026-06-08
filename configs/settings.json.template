@@ -1,0 +1,22 @@
+{
+  "_comment": "Claude Code 全局设置 → ~/.claude/settings.json",
+  "_instructions": "复制此文件到 ~/.claude/settings.json，替换所有 <...> 占位符",
+
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
+    "_comment_base_url": "如果使用其他 Anthropic 兼容后端（如 OpenRouter），修改上述 URL",
+
+    "ANTHROPIC_AUTH_TOKEN": "<your-deepseek-api-key>",
+    "_comment_auth": "DeepSeek API Key，从 https://platform.deepseek.com/api_keys 获取",
+
+    "ANTHROPIC_MODEL": "deepseek-v4-pro[1m]",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "deepseek-v4-pro[1m]",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "deepseek-v4-pro[1m]",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek-v4-flash",
+    "_comment_model": "[1m] 后缀启用 1M token context window",
+
+    "OPENCLAW_GATEWAY_URL": "http://localhost:18789",
+    "OPENCLAW_GATEWAY_TOKEN": "<your-openclaw-gateway-token>",
+    "_comment_gateway": "Gateway token 来自 ~/.openclaw/openclaw.json 中 gateway.auth.token"
+  }
+}

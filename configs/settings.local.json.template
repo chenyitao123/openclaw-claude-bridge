@@ -1,0 +1,32 @@
+{
+  "_comment": "Claude Code 项目级设置 → ~/.claude/settings.local.json",
+  "_instructions": "复制此文件到 ~/.claude/settings.local.json",
+
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "task-bridge"
+  ],
+  "permissions": {
+    "allow": [
+      "Bash(openclaw message *)",
+      "Bash(openclaw channel *)",
+      "Bash(openclaw channels *)",
+      "Bash(openclaw agent *)",
+      "Bash(openclaw agents *)",
+      "Bash(openclaw --version)",
+      "Bash(openclaw --help)",
+      "Bash(systemctl --user status openclaw-gateway)",
+      "Bash(systemctl --user status task-watcher)",
+      "Bash(systemctl --user restart task-watcher)",
+      "Bash(systemctl --user list-units --type=service)",
+      "Bash(journalctl --user -u openclaw-gateway *)",
+      "Bash(chmod +x ~/bin/task-watcher.sh)",
+      "mcp__task-bridge__list_tasks",
+      "mcp__task-bridge__get_task",
+      "mcp__task-bridge__complete_task",
+      "Bash(claude --version)",
+      "Bash(python3 -m json.tool)",
+      "Bash(python3 -c 'import sys,json; *)"
+    ]
+  }
+}
