@@ -65,7 +65,8 @@ openclaw agent \
   --session-id ca23462f-f7ea-40a4-aafb-16798a084592 \
   --message "<任务描述>" \
   --deliver \
-  --target "o9cq806jcscxU3Y1_dD8wtWzBlVM@im.wechat" \
+  --reply-channel openclaw-weixin \
+  --reply-to "o9cq806jcscxU3Y1_dD8wtWzBlVM@im.wechat" \
   --thinking high
 ```
 
