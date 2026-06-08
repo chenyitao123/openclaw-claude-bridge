@@ -23,6 +23,8 @@
   },
 
   "plugins": {
+    "allow": ["openclaw-weixin"],
+    "_comment_allow": "显式允许的插件列表，避免启动时 warning",
     "entries": {
       "openclaw-weixin": {
         "enabled": true
